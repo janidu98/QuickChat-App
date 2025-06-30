@@ -6,8 +6,9 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={`bg-[#818582]/10 h-full rounded-r-xl overflow-y-scroll text-white ${selectedUser ? 'max-md:hidden' : ''}`}>
+    <div className={`bg-[#818582]/10 h-full p-5 rounded-r-xl overflow-y-scroll text-white ${selectedUser ? 'max-md:hidden' : ''}`}>
       <div className="pb-5">
+        {/* Logo and Menu icon */}
         <div className="flex justify-between items-center">
           <img src={assets.logo} alt="logo" className="max-w-40" />
           <div className="relative py-2 group">
@@ -27,6 +28,12 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
               <p className="cursor-pointer text-sm">Logout</p>
             </div>
           </div>
+        </div>
+
+        {/* Searchbar */}
+        <div className="bg-[#282142] rounded-full flex items-center gap-2 px-4 py-3 mt-5">
+          <img src={assets.search_icon} alt="Search_icon" className="w-3"/>
+          <input type="text" className="bg-transparent border-none outline-none text-xs text-white placeholder-[#c8c8c8] flex-1" placeholder="Search User"/>
         </div>
       </div>
     </div>
