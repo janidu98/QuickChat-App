@@ -38,7 +38,7 @@ const ChatContainer = ({ selectedUser, setSelectedUser }) => {
       </div>
 
       {/* Chat area */}
-      <div className="flex flex-col h-[calc(100% - 120px)] p-3 pb-6 overflow-y-scroll">
+      <div className="flex flex-col h-[calc(100%-120px)] p-3 pb-6 overflow-y-scroll">
         {messagesDummyData.map((msg, index) => (
           <div
             key={index}
@@ -74,11 +74,37 @@ const ChatContainer = ({ selectedUser, setSelectedUser }) => {
                 alt=""
                 className="w-7 rounded-full"
               />
-              <p className="text-gray-500">{formatMessageTime(msg.createdAt)}</p>
+              <p className="text-gray-500">
+                {formatMessageTime(msg.createdAt)}
+              </p>
             </div>
           </div>
         ))}
         <div ref={scrollEnd}></div>
+      </div>
+
+      {/* Bottom area */}
+      <div className="absolute bottom-0 left-0 right-0 flex items-center gap-3 p-3">
+        <div className="flex-1 flex items-center bg-gray-100/12 px-3 rounded-full">
+          <input
+            type="text"
+            placeholder="Send a message..."
+            className="flex-1 text-sm text-white placeholder-gray-400 p-3 rounded-lg border-none outline-none"
+          />
+          <input type="file" id="image" accept="image/png, image/jpeg" hidden />
+          <label htmlFor="image">
+            <img
+              src={assets.gallery_icon}
+              alt="Gallery_icon"
+              className="cursor-pointer w-5 mr-2"
+            />
+          </label>
+        </div>
+        <img
+          src={assets.send_button}
+          alt="Send_btn"
+          className="w-7 cursor-pointer"
+        />
       </div>
     </div>
   ) : (
